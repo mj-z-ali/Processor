@@ -62,17 +62,30 @@
 %endmacro
 
 %macro _p_ 1
-	movq	xmm1, xmm0
+	mov		[rel restore], rax
+	mov		[rel restore+1*8], rbx
+	mov		[rel restore+2*8], rcx
+	mov		[rel restore+3*8], rdx
+	mov 	[rel restore+4*8], rdi
+	mov   	[rel restore+5*8], rsi
+	movq	[rel restore+6*8], xmm0
 	lea rdi, [rel format]
 	and rsi, 0
 	or	rsi, %1
 	xor rax, rax
 	call _printf
-	movq xmm0, xmm1
+	mov		rax, [rel restore]
+	mov		rbx, [rel restore+1*8]
+	mov		rcx, [rel restore+2*8]
+	mov		rdx, [rel restore+3*8]
+	mov	 	rdi, [rel restore+4*8]
+	mov	    rsi, [rel restore+5*8]
+	movq 	xmm0, [rel restore+6*8]
 %endmacro
 section .data
  	format: db "%llu", 0xa, 0
-	mem: dq 8388608 dup(0)
+	mem: dq 8388608 dup(5)
+	restore: dq 8 dup(0)
 section .text
 	global _main
 	extern _printf
@@ -85,11 +98,12 @@ _main:
 	and rdi, 0
 	movq xmm0, rdi						; init RIP with 0
 
-						mov	r8, 194
+						mov	r8, 128
 						mov r13, 1300
 						mov r12, 3
 						shl r12, 28
 						or 	r12, 0x10000
+						mov r11, 0xFFFFFFFFFFFFFFFF
 
 						
 
@@ -226,7 +240,7 @@ _main:
 	and	  rcx, rax						; rcx = (xR8==128) (RCF[3,5]==0)
 	movq  rax, xmm0
 	;and   eax, eax 					; rax = RIP
-	lea	  rsi, [rel mem]					; rsi = base
+	lea	  rsi, [rel mem]				; rsi = base
 	and   rdi, 0
 	or    rdi, [rsi+rax]				; rdi = (RIP)mem
 	and_64 rcx, rdi						; rax = (xR8==128) (RCF[3,5]==0) (RIP)mem
@@ -238,10 +252,49 @@ _main:
 										;		{ (xR8==192) (xR12[15,23]==32) (xR13[32,64]) } +
 										;		{ (xR8==128) (RCF[3,5]==0) (RIP)mem }  +
 
+;-- 5 --; 			
+	;========== { ~(xR8==69) ~(xR8==128) ~(xR8==192) ~(xR8==194) (xR11[0,32]) } ==========;
+	
+	compare r8, 69						; rax = (xR8==69)
+	and rsi, 0
+	or	rsi, rax						
+	not rsi								; rsi = ~(xR8==69)
+	compare r8, 128				
+	not rax
+	and rsi, rax						; rsi = ~(xR8==69) ~(xR8==128)
+	compare r8, 192
+	not rax
+	and rsi, rax						; rsi = ~(xR8==69) ~(xR8==128) ~(xR8==192)
+	compare r8, 194
+	not rax
+	and rsi, rax						; rsi = ~(xR8==69) ~(xR8==128) ~(xR8==192) ~(xR8==194)
+	and_64 rsi, r11						; rax = ~(xR8==69) ~(xR8==128) ~(xR8==192) ~(xR8==194) (xR11)
+	and eax, eax						; rax = ~(xR8==69) ~(xR8==128) ~(xR8==192) ~(xR8==194) (xR11[0,32])
 
-	lea	rdi, [rel format]
-	mov rsi, rdx
-	xor rax, rax
+	;********** { ~(xR8==69) ~(xR8==128) ~(xR8==192) ~(xR8==194) (xR11[0,32]) } **********;
+
+	or rdx, rax							; rdx = {(r8==69)(r13[0,32])} +
+										;		{r8==194} {(0≤icode≤2) (r12[28,32]) + (icode==59) (r12[32,40])} +
+										;		{ (xR8==192) (xR12[15,23]==32) (xR13[32,64]) } +
+										;		{ (xR8==128) (RCF[3,5]==0) (RIP)mem }  +
+										;		{  ~(xR8==69) ~(xR8==128) ~(xR8==192) ~(xR8==194) (xR11[0,32]) }
+
+	and edx, edx						; ensure high bits are zeroed out		
+	and rax, 0
+	or	rax, 0xFFFFFFFFFFFFFFFF
+	shl	rax, 32
+	and	r11, rax						; xR11[0,32] = 0x0..00
+	or	r11, rdx						; xR11[0,32] = {(r8==69)(r13[0,32])} +
+										;		{r8==194} {(0≤icode≤2) (r12[28,32]) + (icode==59) (r12[32,40])} +
+										;		{ (xR8==192) (xR12[15,23]==32) (xR13[32,64]) } +
+										;		{ (xR8==128) (RCF[3,5]==0) (RIP)mem }  +
+										;		{  ~(xR8==69) ~(xR8==128) ~(xR8==192) ~(xR8==194) (xR11[0,32]) }
+
+;********** xR11[0,32] **********;
+
+
+
+	_p_ r11
 	; xor rsi, rsi
 	; lea rax, [rel mem]
 	; mov r9, 10
@@ -251,7 +304,7 @@ _main:
 	; or byte [rel mem], 100
 	; or  sil, [rel rax]
 	; mov rax, 0
-	call _printf
+	
 	
 
 	mov rsp, rbp
