@@ -88,15 +88,13 @@ PROOF
         <2>9 QED BY <2>8
     <1> QED BY <1>3, <1>4
     
-THEOREM CMP32_CORRECT2 ==
+THEOREM CMP32_F_EQ_G ==
     ASSUME N=31 PROVE
     \A f,g \in BVN :
-    \A i \in 0..N :           
     CMP32[f][g] <=> f=g
 PROOF
     <1>1 TAKE f,g \in BVN
-    <1>2 TAKE i \in 0..N
-    <1>3 ASSUME CMP32[f][g] PROVE f=g
+    <1>2 ASSUME CMP32[f][g] PROVE f=g
         <2>1 
              (~XORN[f][g][0] /\ ~XORN[f][g][1]  /\ ~XORN[f][g][2]  /\ 
              ~XORN[f][g][3]  /\ ~XORN[f][g][4]  /\ ~XORN[f][g][5]  /\ 
@@ -130,9 +128,9 @@ PROOF
               (f=g)
             BY DEF BVN
         <2>3 f=g
-            BY <1>3,<2>1,<2>2 DEF CMP32
+            BY <1>2,<2>1,<2>2 DEF CMP32
         <2>4 QED BY <2>3
-    <1>4 ASSUME f=g PROVE CMP32[f][g]
+    <1>3 ASSUME f=g PROVE CMP32[f][g]
         <2>5 (f=g) => 
              (f[0]=g[0]   /\ f[1]=g[1]   /\ f[2]=g[2]   /\ f[3]=g[3]   /\
               f[4]=g[4]   /\ f[5]=g[5]   /\ f[6]=g[6]   /\ f[7]=g[7]   /\
@@ -165,64 +163,14 @@ PROOF
              ~XORN[f][g][30] /\ ~XORN[f][g][31])
             BY NOT_XORN_EQ
         <2>7 CMP32[f][g]
-            BY <1>4,<2>5,<2>6 DEF CMP32
+            BY <1>3,<2>5,<2>6 DEF CMP32
         <2>8 QED BY <2>7  
-    <1> QED BY <1>3,<1>4
+    <1> QED BY <1>2,<1>3
 
-THEOREM CMP32_CORRECT ==
-    ASSUME N=31 PROVE
-    \A f,g \in BVN :
-    \A i \in 0..31 :           
-    CMP32[f][g] <=> f=g
-PROOF
-    <1>1 TAKE f,g \in BVN
-    <1>2 TAKE i \in 0..31
-    <1>3 i \in 0..N
-        OBVIOUS
-    <1>4 ASSUME CMP32[f][g] PROVE f=g
-        <2>1 ~XORN[f][g][i] <=> f[i]=g[i]
-            BY NOT_XORN_EQ
-        <2>2 
-             (~XORN[f][g][0]  /\ ~XORN[f][g][1] /\ ~XORN[f][g][2]  /\ 
-             ~XORN[f][g][3]  /\ ~XORN[f][g][4]  /\ ~XORN[f][g][5]  /\ 
-             ~XORN[f][g][6]  /\ ~XORN[f][g][7]  /\ ~XORN[f][g][8]  /\
-             ~XORN[f][g][9]  /\ ~XORN[f][g][10] /\ ~XORN[f][g][11] /\
-             ~XORN[f][g][12] /\ ~XORN[f][g][13] /\ ~XORN[f][g][14] /\
-             ~XORN[f][g][15] /\ ~XORN[f][g][16] /\ ~XORN[f][g][17] /\
-             ~XORN[f][g][18] /\ ~XORN[f][g][19] /\ ~XORN[f][g][20] /\
-             ~XORN[f][g][21] /\ ~XORN[f][g][22] /\ ~XORN[f][g][23] /\
-             ~XORN[f][g][24] /\ ~XORN[f][g][25] /\ ~XORN[f][g][26] /\
-             ~XORN[f][g][27] /\ ~XORN[f][g][28] /\ ~XORN[f][g][29] /\
-             ~XORN[f][g][30] /\ ~XORN[f][g][31]) => ~XORN[f][g][i]
-             OBVIOUS
-        <2>3 ~XORN[f][g][i]
-            BY <1>4, <2>2 DEF CMP32
-        <2>4 f[i]=g[i]
-            BY <2>1, <2>3
-        <2>5 QED BY <2>4
-    <1>5 ASSUME f[i]=g[i] PROVE CMP32[f][g]
-        <2>6 f[i]=g[i] => ~XORN[f][g][i]
-            BY NOT_XORN_EQ
-        <2>7 ~XORN[f][g][i]
-            BY <1>5, <2>6
-        <2> ~XORN[f][g][i] =>
-            (~XORN[f][g][0]  /\ ~XORN[f][g][1] /\ ~XORN[f][g][2]  /\ 
-             ~XORN[f][g][3]  /\ ~XORN[f][g][4]  /\ ~XORN[f][g][5]  /\ 
-             ~XORN[f][g][6]  /\ ~XORN[f][g][7]  /\ ~XORN[f][g][8]  /\
-             ~XORN[f][g][9]  /\ ~XORN[f][g][10] /\ ~XORN[f][g][11] /\
-             ~XORN[f][g][12] /\ ~XORN[f][g][13] /\ ~XORN[f][g][14] /\
-             ~XORN[f][g][15] /\ ~XORN[f][g][16] /\ ~XORN[f][g][17] /\
-             ~XORN[f][g][18] /\ ~XORN[f][g][19] /\ ~XORN[f][g][20] /\
-             ~XORN[f][g][21] /\ ~XORN[f][g][22] /\ ~XORN[f][g][23] /\
-             ~XORN[f][g][24] /\ ~XORN[f][g][25] /\ ~XORN[f][g][26] /\
-             ~XORN[f][g][27] /\ ~XORN[f][g][28] /\ ~XORN[f][g][29] /\
-             ~XORN[f][g][30] /\ ~XORN[f][g][31])
-             OBVIOUS
-        <2> QED
-    <1> QED BY <1>4
+
    
 
 =============================================================================
 \* Modification History
-\* Last modified Sun Nov 13 02:56:16 CST 2022 by mjhomefolder
+\* Last modified Sun Nov 13 04:28:43 CST 2022 by mjhomefolder
 \* Created Thu Nov 03 00:11:52 CDT 2022 by mjhomefolder
