@@ -75,40 +75,22 @@ CMP_EQ_LT_GT_2 == [f \in BVN |-> [g \in BVN |-> [i \in {x \in 0..62 : x%2=0} |->
             [CMP_EQ_LT_GT_1[f][g][i+1][eq][lt][gt][0]]
             [CMP_EQ_LT_GT_1[f][g][i+1][eq][lt][gt][1]]
             [CMP_EQ_LT_GT_1[f][g][i+1][eq][lt][gt][2]]   ]]]]]]
-            
-CMP_EQ_LT_GT_4 == [f \in BVN |-> [g \in BVN |-> [i \in {0,4,8,12,16,20,24,28,32,36,40,44,48,52,56,60} |->
+    
+                                                
+CMP_EQ_LT_GT_3 == [f \in BVN |-> [g \in BVN |-> [i \in 0..61 |->
+    [eq \in {TRUE,FALSE} |-> [lt \in {TRUE,FALSE} |-> [gt \in {TRUE,FALSE} |-> 
+        CMP_EQ_LT_GT_1[f][g][i]
+            [CMP_EQ_LT_GT_2[f][g][i+1][eq][lt][gt][0]]
+            [CMP_EQ_LT_GT_2[f][g][i+1][eq][lt][gt][1]]
+            [CMP_EQ_LT_GT_2[f][g][i+1][eq][lt][gt][2]]
+                                                            ]]]]]]  
+                                                                        
+CMP_EQ_LT_GT_4 == [f \in BVN |-> [g \in BVN |-> [i \in {x \in 0..60 : x%4=0} |->
     [eq \in {TRUE,FALSE} |-> [lt \in {TRUE,FALSE} |-> [gt \in {TRUE,FALSE} |->                                                
         CMP_EQ_LT_GT_2[f][g][i]
             [CMP_EQ_LT_GT_2[f][g][i+2][eq][lt][gt][0]]
             [CMP_EQ_LT_GT_2[f][g][i+2][eq][lt][gt][1]]
             [CMP_EQ_LT_GT_2[f][g][i+2][eq][lt][gt][2]]   ]]]]]]  
-
-
-(*
-CMP_EQ_LT_GT_2 == [f \in BVN |-> [g \in BVN |-> [i \in 0..62 |->
-    [eq \in {TRUE,FALSE} |-> [lt \in {TRUE,FALSE} |-> [gt \in {TRUE,FALSE} |-> 
-        CMP_EQ_LT_GT[f[i]][g[i]]
-            [CMP_EQ_LT_GT[f[i+1]][g[i+1]][eq][lt][gt][0]]
-            [CMP_EQ_LT_GT[f[i+1]][g[i+1]][eq][lt][gt][1]]
-            [CMP_EQ_LT_GT[f[i+1]][g[i+1]][eq][lt][gt][2]]
-                                                            ]]]]]]
- *)                                               
-                                                
-CMP_EQ_LT_GT_3 == [f \in BVN |-> [g \in BVN |-> [i \in 0..61 |->
-    [eq \in {TRUE,FALSE} |-> [lt \in {TRUE,FALSE} |-> [gt \in {TRUE,FALSE} |-> 
-        CMP_EQ_LT_GT[f[i]][g[i]]
-            [CMP_EQ_LT_GT_2[f][g][i+1][eq][lt][gt][0]]
-            [CMP_EQ_LT_GT_2[f][g][i+1][eq][lt][gt][1]]
-            [CMP_EQ_LT_GT_2[f][g][i+1][eq][lt][gt][2]]
-                                                            ]]]]]]                                                                                                                                             
-(*                                                
-CMP_EQ_LT_GT_4 == [f \in BVN |-> [g \in BVN |-> [i \in {0,4,8,12,16,20,24,28,32,36,40,44,48,52,56,60} |->
-    [eq \in {TRUE,FALSE} |-> [lt \in {TRUE,FALSE} |-> [gt \in {TRUE,FALSE} |-> 
-        CMP_EQ_LT_GT[f[i]][g[i]]
-            [CMP_EQ_LT_GT_3[f][g][i+1][eq][lt][gt][0]]
-            [CMP_EQ_LT_GT_3[f][g][i+1][eq][lt][gt][1]]
-            [CMP_EQ_LT_GT_3[f][g][i+1][eq][lt][gt][2]]  ]]]]]] 
-*)                                                             
 
 CMP_EQ_LT_GT_8 == [f \in BVN |-> [g \in BVN |-> [i \in {0,8,16,24,32,40,48,56} |->
     [eq \in {TRUE,FALSE} |-> [lt \in {TRUE,FALSE} |-> [gt \in {TRUE,FALSE} |->                                                
@@ -134,50 +116,7 @@ CMP_EQ_LT_GT_32 == [f \in BVN |-> [g \in BVN |-> [i \in {0,32} |->
 
           
                         
-
-CMP_EQ_LT_GT_T == [f \in BVN |-> [g \in BVN |-> 
-    [eq \in {TRUE,FALSE} |-> [lt \in {TRUE,FALSE} |-> [gt \in {TRUE,FALSE} |-> 
-
-        CMP_EQ_LT_GT[f[0]][g[0]]
-            [CMP_EQ_LT_GT[f[1]][g[1]]
-                [CMP_EQ_LT_GT[f[2]][g[2]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][0]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][1]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][2]][0]]
-                [CMP_EQ_LT_GT[f[2]][g[2]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][0]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][1]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][2]][1]]
-                [CMP_EQ_LT_GT[f[2]][g[2]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][0]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][1]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][2]][2]][0]]
-            [CMP_EQ_LT_GT[f[1]][g[1]]
-                [CMP_EQ_LT_GT[f[2]][g[2]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][0]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][1]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][2]][0]]
-                [CMP_EQ_LT_GT[f[2]][g[2]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][0]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][1]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][2]][1]]
-                [CMP_EQ_LT_GT[f[2]][g[2]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][0]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][1]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][2]][2]][1]]
-            [CMP_EQ_LT_GT[f[1]][g[1]]
-                [CMP_EQ_LT_GT[f[2]][g[2]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][0]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][1]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][2]][0]]
-                [CMP_EQ_LT_GT[f[2]][g[2]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][0]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][1]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][2]][1]]
-                [CMP_EQ_LT_GT[f[2]][g[2]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][0]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][1]]
-                    [CMP_EQ_LT_GT[f[3]][g[3]][eq][lt][gt][2]][2]][2]]  ]]]]]                                             
+                                           
 
 (*
     xR11[0,32] = { (xR8==69) (xR13[0,32]) } +
@@ -270,6 +209,18 @@ xR12[32,64] = { [xR8==224] [(xR12[15,23]==0) + (xR12[15,23]==9)] [0 ≤ xR12[32,
 { [(xR8==196) + (xR8==197)] [xR13[0,32]] } +
 { ~(xR8==160) ~(xR8==167) ~(xR8==192) ~(xR8==194) ~(xR8==196) ~(xR8==197) ~(xR8==224) ~(xR8==225) (xR12[32,64]) }                                       
 
+
+xR13[0,1] := { (xR8=256) \/ (xR8=257) } \/
+
+xR13[1,6] := { [(xR8=256) \/ (xR8=257)]  /\ xR12[23,28] } \/
+ 
+xR13[0,32] := { [(xR8=192) /\ ((xR12[15,23]=52) \/ (xR12[15,23]=53) \/ (xR12[15,23]=59) \/ (xR12[15,23]=60) \/ (xR12[15,23]=76))] /\ xR14[32,64] } \/
+{ [(xR8=192) /\ ((xR12[15,23]=30) \/ (xR12[15,23]=31) \/ (xR12[15,23]=33))] /\ xR13[32,64] } \/
+{ [(xR8=192) /\ ((xR12[15,23]=0) \/ (xR12[15,23]=1) \/ (xR12[15,23]=2) \/ (xR12[15,23]=9) \/ (xR12[15,23]=10))] /\ xR12[32,64] }
+
+xR13[32,64] := { [(xR8=194) /\ ((xR12[15,23]=59) \/ (xR12[15,23]=60))] /\ xR13[0,32] }
+
+--DID WRITEBACK AND EXECUTION
 *)                                       
                                       
                                        
@@ -549,5 +500,5 @@ PROOF
 
 =============================================================================
 \* Modification History
-\* Last modified Thu Nov 17 09:11:35 CST 2022 by mjhomefolder
+\* Last modified Sun Nov 20 07:08:01 CST 2022 by mjhomefolder
 \* Created Thu Nov 03 00:11:52 CDT 2022 by mjhomefolder
