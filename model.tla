@@ -417,6 +417,14 @@ R30 := { (xR8=98) /\ [ [ (xR13[1,6]=30) /\ xR14[0,32] ] \/ [ ¬(xR13[1,6]=30) /\
 
 R31 := { (xR8=98) /\ [ [ (xR13[1,6]=31) /\ xR14[0,32] ] \/ [ ¬(xR13[1,6]=31) /\ R31 ] ] } \/
 
+MEMORY[xR14[32,64]] := { (xR8=224) /\ [ (xR12[15,23]=59) \/ (xR12[15,23]=60) ] 
+/\ (STACK_MIN ≤ xR14[32,64] ≤ STACK_MAX) /\ xR15[32,64] } \/
+
+MEMORY[xR12[32,64]] := { (xR8=224) /\ [ (xR12[15,23]=1) \/ (xR12[15,23]=10) ] 
+/\ (MEM_MIN ≤ xR12[32,64] ≤ MEM_MAX) /\ xR13[32,64] } \/
+
+MEMORY[xR14[32,64]] := { (xR8=224) /\ (xR12[15,23]=52) /\ (STACK_MIN ≤ xR14[32,64] ≤ STACK_MAX) /\ xR13[32,64] } \/
+
 *)                                       
                                       
                                        
@@ -696,5 +704,5 @@ PROOF
 
 =============================================================================
 \* Modification History
-\* Last modified Fri Nov 25 22:41:27 CST 2022 by mjhomefolder
+\* Last modified Sat Nov 26 19:35:34 CST 2022 by mjhomefolder
 \* Created Thu Nov 03 00:11:52 CDT 2022 by mjhomefolder
