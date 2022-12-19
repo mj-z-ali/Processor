@@ -791,19 +791,21 @@ xR11 == [ i \in 0..63 |->
             (CMP64[xR8][b194] /\ ( (zero_gte_xR12_15_22_lte_two /\ xR12_28_31[i]) \/ (CMP64[xR12_15_22][b59] /\ xR12_32_39[i]))) \/
             \* (xR8=192) /\ (xR12[15,22]=32) /\ xR13[32,63]
             (CMP64[xR8][b192] /\ CMP64[xR12_15_22][b32] /\ xR13_32_63[i]) \/
+            \* (xR8=128) /\ (RCF[3,4]=0) /\ MEM[RIP] 
+            (CMP64[xR8][b128] /\ CMP64[RCF_3_4][b0] /\ MEM[BIN32[RIP]][i]) \/
             \* ~(xR8=69) /\ ~(xR8=192) /\ ~(xR8=194) /\ ~(xR8=128)  /\ xR11[0,31]
             (~CMP64[xR8][b69] /\ ~CMP64[xR8][b194] /\ ~CMP64[xR8][b192] /\ ~CMP64[xR8][b128] /\ xR11[i]) 
         )
         
     ) \/  
     (
-        \* xR11[0,63]
-        ((i >= 0) /\ (i <= 63)) /\
+        \* xR11[32,63]
+        ((i >= 32) /\ (i <= 63)) /\
         (   
             \* (xR8=128) /\ (RCF[3,4]=0) /\ MEM[RIP] 
             (CMP64[xR8][b128] /\ CMP64[RCF_3_4][b0] /\ MEM[BIN32[RIP]][i]) \/
-            \*  ~(xR8=69) /\ ~(xR8=192) /\ ~(xR8=194) /\ ~(xR8=128) /\ (xR11)
-            (~CMP64[xR8][b69] /\ ~CMP64[xR8][b194] /\ ~CMP64[xR8][b192] /\ ~CMP64[xR8][b128] /\ xR11[i])
+            \* ~(xR8=128) /\ (xR11)
+            (~CMP64[xR8][b128] /\ xR11[i])
         )
     )]  
         
@@ -1508,5 +1510,5 @@ PROOF
 
 =============================================================================
 \* Modification History
-\* Last modified Fri Dec 16 01:08:10 CST 2022 by mjhomefolder
+\* Last modified Mon Dec 19 12:12:02 CST 2022 by mjhomefolder
 \* Created Thu Nov 03 00:11:52 CDT 2022 by mjhomefolder
