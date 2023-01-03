@@ -164,6 +164,97 @@
     <td colspan="5">rB</td>
     <td colspan="46">PADDING</td>
   </tr>
+  <tr>
+    <td>move rA,rB</td>
+    <td colspan="8">22</td>
+    <td colspan="5">rA</td>
+    <td colspan="5">rB</td>
+    <td colspan="46">PADDING</td>
+  </tr>
+  <tr>
+    <td>movne rA,rB</td>
+    <td colspan="8">23</td>
+    <td colspan="5">rA</td>
+    <td colspan="5">rB</td>
+    <td colspan="46">PADDING</td>
+  </tr>
+  <tr>
+    <td>and rA,rB</td>
+    <td colspan="8">24</td>
+    <td colspan="5">rA</td>
+    <td colspan="5">rB</td>
+    <td colspan="46">PADDING</td>
+  </tr>
+  <tr>
+    <td>or rA,rB</td>
+    <td colspan="8">25</td>
+    <td colspan="5">rA</td>
+    <td colspan="5">rB</td>
+    <td colspan="46">PADDING</td>
+  </tr>
+  <tr>
+    <td>xor rA,rB</td>
+    <td colspan="8">26</td>
+    <td colspan="5">rA</td>
+    <td colspan="5">rB</td>
+    <td colspan="46">PADDING</td>
+  </tr>
+  <tr>
+    <td>shl rA,rB</td>
+    <td colspan="8">27</td>
+    <td colspan="5">rA</td>
+    <td colspan="5">rB</td>
+    <td colspan="46">PADDING</td>
+  </tr>
+  <tr>
+    <td>shr rA,rB</td>
+    <td colspan="8">28</td>
+    <td colspan="5">rA</td>
+    <td colspan="5">rB</td>
+    <td colspan="46">PADDING</td>
+  </tr>
+  <tr>
+    <td>sar rA,rB</td>
+    <td colspan="8">29</td>
+    <td colspan="5">rA</td>
+    <td colspan="5">rB</td>
+    <td colspan="46">PADDING</td>
+  </tr>
+  <tr>
+    <td>add rA,rB</td>
+    <td colspan="8">30</td>
+    <td colspan="5">rA</td>
+    <td colspan="5">rB</td>
+    <td colspan="46">PADDING</td>
+  </tr>
+  <tr>
+    <td>sub rA,rB</td>
+    <td colspan="8">31</td>
+    <td colspan="5">rA</td>
+    <td colspan="5">rB</td>
+    <td colspan="46">PADDING</td>
+  </tr>
+  <tr>
+    <td>mult rA,rB</td>
+    <td colspan="8">32</td>
+    <td colspan="5">rA</td>
+    <td colspan="5">rB</td>
+    <td colspan="46">PADDING</td>
+  </tr>
+  <tr>
+    <td>cmp rA,rB</td>
+    <td colspan="8">33</td>
+    <td colspan="5">rA</td>
+    <td colspan="5">rB</td>
+    <td colspan="46">PADDING</td>
+  </tr>
+  <tr>
+    <td>mov rA,imm</td>
+    <td colspan="8">44</td>
+    <td colspan="5">rA</td>
+    <td colspan="32">IMMEDIATE</td>
+    <td colspan="19">PADDING</td>
+  </tr>
 </table>
 
 
