@@ -327,6 +327,21 @@
     <td colspan="32">DESTINATION</td>
     <td colspan="24">PADDING</td>
   </tr>
+  <tr>
+    <td>ret</td>
+    <td colspan="8">76</td>
+    <td colspan="56">PADDING</td>
+  </tr>
+  <tr>
+    <td>hlt</td>
+    <td colspan="8">77</td>
+    <td colspan="56">PADDING</td>
+  </tr>
+  <tr>
+    <td>nop</td>
+    <td colspan="8">78</td>
+    <td colspan="56">PADDING</td>
+  </tr>
   
 </table>
 
