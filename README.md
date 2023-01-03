@@ -255,6 +255,79 @@
     <td colspan="32">IMMEDIATE</td>
     <td colspan="19">PADDING</td>
   </tr>
+  <tr>
+    <td>not rA</td>
+    <td colspan="8">51</td>
+    <td colspan="5">rA</td>
+    <td colspan="51">PADDING</td>
+  </tr>
+  <tr>
+    <td>push rA</td>
+    <td colspan="8">52</td>
+    <td colspan="5">rA</td>
+    <td colspan="51">PADDING</td>
+  </tr>
+  <tr>
+    <td>pop rA</td>
+    <td colspan="8">53</td>
+    <td colspan="5">rA</td>
+    <td colspan="51">PADDING</td>
+  </tr>
+  <tr>
+    <td>int DISP</td>
+    <td colspan="8">59</td>
+    <td colspan="8">DISPLACEMENT</td>
+    <td colspan="48">PADDING</td>
+  </tr>
+  <tr>
+    <td>call DEST</td>
+    <td colspan="8">60</td>
+    <td colspan="32">DESTINATION</td>
+    <td colspan="24">PADDING</td>
+  </tr>
+  <tr>
+    <td>jump DEST</td>
+    <td colspan="8">61</td>
+    <td colspan="32">DESTINATION</td>
+    <td colspan="24">PADDING</td>
+  </tr>
+  <tr>
+    <td>jumpl DEST</td>
+    <td colspan="8">62</td>
+    <td colspan="32">DESTINATION</td>
+    <td colspan="24">PADDING</td>
+  </tr>
+  <tr>
+    <td>jumple DEST</td>
+    <td colspan="8">63</td>
+    <td colspan="32">DESTINATION</td>
+    <td colspan="24">PADDING</td>
+  </tr>
+  <tr>
+    <td>jumpg DEST</td>
+    <td colspan="8">64</td>
+    <td colspan="32">DESTINATION</td>
+    <td colspan="24">PADDING</td>
+  </tr>
+  <tr>
+    <td>jumpge DEST</td>
+    <td colspan="8">65</td>
+    <td colspan="32">DESTINATION</td>
+    <td colspan="24">PADDING</td>
+  </tr>
+  <tr>
+    <td>jumpe DEST</td>
+    <td colspan="8">66</td>
+    <td colspan="32">DESTINATION</td>
+    <td colspan="24">PADDING</td>
+  </tr>
+  <tr>
+    <td>jumpne DEST</td>
+    <td colspan="8">67</td>
+    <td colspan="32">DESTINATION</td>
+    <td colspan="24">PADDING</td>
+  </tr>
+  
 </table>
 
 
