@@ -1,7 +1,7 @@
 # Processor
 
 This repository presents a functional, but soon-to-be fully-realized model of a 32-bit processor developed entirely from first principles. 
-A finite-state automaton (FSA) was used to model the processor. Then, sequential logical expressions were derived from said automaton. 
+A finite-state automaton (FSA) was used to model the processor. Then, [sequential logical expressions](https://github.com/Amjad-H-Ali/Processor/blob/main/model.txt) were derived from said automaton. Future enhancements will include a formal specification and verifiication of the processor in [TLA+/TLAPS](https://lamport.azurewebsites.net/tla/tla.html).
 The end goal of this project is a practical, formally verified, Turing complete processor built on an FPGA.
 
 In this repository, you will find:
@@ -30,6 +30,23 @@ In this repository, you will find:
 
 ![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/ADDER_MODEL_GRAFFLE.png?raw=true)
 
+* [TLA file](https://github.com/Amjad-H-Ali/Processor/blob/main/model.tla) : TLA+ is a language designed to model systems using basic mathematics. TLAPS is a system for writing and checking formal proofs for said model. It looks something like this:
+
+<h6> Mathematical expression for variable xR11 </h6>
+
+![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/r11_expression_tla_sample.png?raw=true)
+
+<h6> Sample proof that CMP32 is correct </h6>
+
+![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/tla_thm_sample.png?raw=true)
+
+<h6> TLA+ can easily convert to LaTeX </h6>
+
+![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/model_latex_thm_sample.png?raw=true)
+
+<h6> Specification of XOR and CMP LaTeX </h6>
+
+![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/logic_latex_sample.png?raw=true)
 
 <table>
   <tr>
