@@ -6,7 +6,7 @@ The end goal of this project is a practical, formally verified, Turing complete 
 
 In this repository, you will find:
 
-* [A Simulink file](https://github.com/Amjad-H-Ali/Processor/blob/main/PROCESSOR.slx) : Simulink is a MATLAB-based software for modeling and simulating systems. The interactive version of the FSA was designed in Simulink and looks like this:
+* [A Simulink file](https://github.com/Amjad-H-Ali/Processor/blob/main/PROCESSOR.slx) : Simulink is a MATLAB-based software for modeling and simulating systems and will need to be [installed](https://www.mathworks.com/help/install/install-products.html). The interactive version of the FSA was designed in Simulink and looks like this:
 
 <h6>Abstract overview of the FSA </h6>
 
@@ -19,6 +19,16 @@ In this repository, you will find:
 <h6> Detailed FSA of the Adder </h6>
 
 ![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/ADDER_MODEL_SIMULINK.png?raw=true)
+
+* [An OmniGraffle file](https://github.com/Amjad-H-Ali/Processor/blob/main/PROCESSOR_MODEL_FSA.graffle) : OmniGraffle is a tool for building visual diagrams and can be installed [here](https://www.omnigroup.com/omnigraffle). The non-interactive FSA was designed in OmniGraffle and looks like this:
+
+<h6> FSA of the Multiplier </h6>
+
+![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/MULT_MODEL_GRAFFLE.png?raw=true)
+
+<h6> FSA of the Adder </h6>
+
+![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/ADDER_MODEL_GRAFFLE.png?raw=true)
 
 
 <table>
@@ -361,6 +371,3 @@ In this repository, you will find:
 </table>
 
 
-![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/MULT_MODEL_GRAFFLE.png?raw=true)
-
-![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/ADDER_MODEL_GRAFFLE.png?raw=true)
