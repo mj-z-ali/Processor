@@ -1,7 +1,7 @@
 # Processor
 
 This repository presents a functional, but soon-to-be fully-realized model of a 32-bit processor developed entirely from first principles. 
-A finite-state automaton (FSA) was used to model the processor. Then, [sequential logical expressions](https://github.com/Amjad-H-Ali/Processor/blob/main/model.txt) were derived from said automaton. Future enhancements will include a formal specification and verifiication of the processor in [TLA+/TLAPS](https://lamport.azurewebsites.net/tla/tla.html).
+A finite-state automaton (FSA) was used to model the processor. Then, [sequential logical expressions](https://github.com/Amjad-H-Ali/Processor/blob/main/model.txt) were derived from said automaton. Future enhancements will include a formal specification and verification of the processor in [TLA+/TLAPS](https://lamport.azurewebsites.net/tla/tla.html).
 The end goal of this project is a practical, formally verified, Turing complete processor built on an FPGA.
 
 In this repository, you will find:
