@@ -30,7 +30,7 @@ In this repository, you will find:
 
 ![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/ADDER_MODEL_GRAFFLE.png?raw=true)
 
-* [TLA file](https://github.com/Amjad-H-Ali/Processor/blob/main/model.tla) : TLA+ is a language designed to model systems using basic mathematics. TLAPS is a system for writing and checking formal proofs for said model. It looks something like this:
+* [TLA file](https://github.com/Amjad-H-Ali/Processor/blob/main/model.tla) : TLA+ is a language designed to model systems using basic mathematics. TLAPS is a system for writing and checking formal proofs for said model. TLA+ and TLAPS can be installed [here](https://lamport.azurewebsites.net/tla/tla.html). It looks something like this:
 
 <h6> Mathematical expression for variable xR11 </h6>
 
@@ -44,9 +44,20 @@ In this repository, you will find:
 
 ![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/model_latex_thm_sample.png?raw=true)
 
-<h6> Specification of XOR and CMP LaTeX </h6>
+* [PDF file](https://github.com/Amjad-H-Ali/Processor/blob/main/model.pdf) : This file is the TLA+ specification in LaTeX form.
+
+<h6> Specification of XOR and CMP in LaTeX </h6>
 
 ![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/logic_latex_sample.png?raw=true)
+
+* [model.txt](https://github.com/Amjad-H-Ali/Processor/blob/main/model.txt) : This is a text file containing the logical expression that make up the model.
+
+* [scripts.js](https://github.com/Amjad-H-Ali/Processor/blob/main/scripts.js) : This file contains some random JS scripts that help automate writing some logical expressions that otherwise would have been a laborious task doing it by hand.
+
+
+## The Instruction Set Architecture (ISA)
+
+Every instruction is 64-bits wide and is identified and checked for format in the Decode stage of the processor.
 
 <table>
   <tr>
