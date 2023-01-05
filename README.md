@@ -50,6 +50,8 @@ In this repository, you will find:
 
 ![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/logic_latex_sample.png?raw=true)
 
+* [processor.asm](https://github.com/Amjad-H-Ali/Processor/blob/main/processor.asm) : This file will eventually conain the full processor written in x86_64 assembly. Although the final goal is to have a physical processor on an FPGA, it would be nice to have a software version of the processor for simulation. The entire processor model was designed in a way so that it would only need to use registers for its internal build. It only needs registers R8-R15 on the x86_64 architecture for storing model input/output variables, and floating point registers XMM0-XMM15 for storing its own 32-bit registers. Registers RAX, RBX, RCX, RDX, RSI and RDI on the x86_64 processor can be used for computing logic or as temporary storage units. This is not to say the processor does  
+
 * [model.txt](https://github.com/Amjad-H-Ali/Processor/blob/main/model.txt) : This is a text file containing the logical expression that make up the model.
 
 * [scripts.js](https://github.com/Amjad-H-Ali/Processor/blob/main/scripts.js) : This file contains some random JS scripts that help automate writing some logical expressions that otherwise would have been a laborious task doing it by hand.
