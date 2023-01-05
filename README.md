@@ -6,11 +6,17 @@ The end goal of this project is a practical, formally verified, Turing complete 
 
 In this repository, you will find:
 
-A Simulink file
+* [A Simulink file](https://github.com/Amjad-H-Ali/Processor/blob/main/PROCESSOR.slx) : Simulink is a MATLAB-based software for modeling and simulating systems. The interactive version of the FSA was designed in Simulink and looks like this:
+
+<h6>Abstract overview of the FSA </h6>
 
 ![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/PROC_MODEL_SIMULINK.png?raw=true)
 
+<h6> Detailed FSA of the Multiplier </h6>
+
 ![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/MULT_MODEL_SIMULINK.png?raw=true)
+
+<h6> Detailed FSA of the Adder </h6>
 
 ![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/ADDER_MODEL_SIMULINK.png?raw=true)
 
