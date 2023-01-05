@@ -50,7 +50,7 @@ In this repository, you will find:
 
 ![MODEL](https://github.com/Amjad-H-Ali/Processor/blob/main/img/logic_latex_sample.png?raw=true)
 
-* [processor.asm](https://github.com/Amjad-H-Ali/Processor/blob/main/processor.asm) : This file will eventually conain the full processor written in x86_64 assembly. Although the final goal is to have a physical processor on an FPGA, it would be nice to have a software version of the processor for simulation. The entire processor model was designed in a way so that it would only need to use registers for its internal build. It only needs registers R8-R15 on the x86_64 architecture for storing model input/output variables, and floating point registers XMM0-XMM15 for storing its own 32-bit registers. Registers RAX, RBX, RCX, RDX, RSI and RDI on the x86_64 processor can be used for computing logic or as temporary storage units. This is not to say the processor does  
+* [processor.asm](https://github.com/Amjad-H-Ali/Processor/blob/main/processor.asm) : This file will eventually conain the full processor written in x86_64 assembly. Although the final goal is to have a physical processor on an FPGA, it would be nice to have a software version of the processor for simulation. The entire processor model was designed in a way so that it would only need to use registers for its internal build. It only needs registers R8-R15 on the x86_64 architecture for storing model input/output variables, and floating point registers XMM0-XMM15 for storing its own 32-bit registers. Registers RAX, RBX, RCX, RDX, RSI and RDI on the x86_64 processor can be used for computing logic or as temporary storage units. This is not to say the processor does not use other sources of memory at all (like RAM or cache). The processor will use RAM or cache when fetching an instruction or executing a load/store instruction. What is meant here is that the algorithms used to build the processor only use x86_64 register memory.
 
 * [model.txt](https://github.com/Amjad-H-Ali/Processor/blob/main/model.txt) : This is a text file containing the logical expression that make up the model.
 
@@ -398,6 +398,35 @@ Every instruction is 64-bits wide and is identified and checked for format in th
     <td colspan="56">PADDING</td>
   </tr>
   
+</table>
+
+<h6> 32 Registers Each 32-bits Wide </h6>
+
+<table>
+  <tr>
+    <td>#</td>
+    <td>Name</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>RIP</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>RSP</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>RBP</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>RCF</td>
+  </tr>
+  <tr>
+    <td>4-31</td>
+    <td>R4, R5, ..., R31</td>
+  </tr>
 </table>
 
 
