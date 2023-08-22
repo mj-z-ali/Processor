@@ -1,3 +1,6 @@
+## [Lambda32](https://github.com/Amjad-H-Ali/Lambda32) : Head over to this repo as it is an extension of the current project.
+
+
 # Processor
 
 This repository presents a functional, but soon-to-be fully-realized model of a 32-bit processor developed entirely from first principles. 
